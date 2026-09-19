@@ -108,9 +108,11 @@ function entryHtml(entry, i) {
   const mirrored = side === 'left' ? ' is-mirrored' : '';
 
   const italic = entry.italic ? ' is-italic' : '';
+  // "left" keeps the message under the name instead of pushing it to the right.
+  const textLeft = entry.textAlign === 'left' ? ' is-text-left' : '';
 
   return `
-    <article class="entry${mirrored}${italic}" id="${slug(entry, i)}">
+    <article class="entry${mirrored}${italic}${textLeft}" id="${slug(entry, i)}">
       <div class="entry-text">
         <h2 class="entry-name">${escapeHtml(entry.name ?? '')}</h2>
         ${entry.relation ? `<p class="entry-relation">${escapeHtml(entry.relation)}</p>` : ''}

@@ -93,6 +93,7 @@ photo's own EXIF data or from its filename.
 | `name` | yes | the heading of the section — the person who wrote it |
 | `text` | yes | the message; `\n` starts a new line, a blank line (`\n\n`) a new paragraph |
 | `italic` | no | `true` sets that person's message in italic |
+| `textAlign` | no | `"left"` keeps the message under the name instead of set to the right |
 | `relation` | no | small italic line under the name, e.g. "from the office" |
 | `media` | no | one photo or video; leave it out and the message stands alone |
 | `side` | no | `"right"` or `"left"` to force which side the name sits on |
@@ -188,9 +189,15 @@ All colours and typefaces are variables at the top of `css/styles.css`:
 --petal:     #f2b8c6;   /* the sakura petals       */
 ```
 
-Typefaces are Shippori Mincho (names, heading) and Zen Kaku Gothic New (message text),
-loaded from Google Fonts in `index.html`. Both fall back to system fonts if there's no
-internet.
+Typefaces are Sawarabi Mincho (names, heading) and M PLUS 1p (message text), loaded from
+Google Fonts in `index.html`. Both fall back to system fonts if there's no internet.
+
+They were chosen because they cover Czech. Most Japanese families on Google Fonts —
+Shippori Mincho, Zen Kaku Gothic New, Zen Old Mincho, Noto Serif JP — declare the
+`latin-ext` range but ship no `ě ř ů č ž š ň ť ď`, so the browser borrows those letters
+from a system font and they look wrong in the middle of a word, most visibly on phones.
+If you ever swap the fonts, check the new one renders `Příliš žluťoučký kůň úpěl
+ďábelské ódy` in a single typeface.
 
 ### The sakura
 

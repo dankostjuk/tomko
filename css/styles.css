@@ -17,8 +17,10 @@
   --rule:      #e6d8d2;   /* hairlines               */
   --petal:     #f2b8c6;   /* 撫子 — the petals       */
 
-  --serif: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, "Iowan Old Style", serif;
-  --sans:  "Zen Kaku Gothic New", "Karla", ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Both cover Czech in full — the Zen/Shippori families declare latin-ext but
+     ship no ě ř ů č ž š ň ť ď, which the browser then borrows from a system font. */
+  --serif: "Sawarabi Mincho", "Hiragino Mincho ProN", Georgia, "Iowan Old Style", serif;
+  --sans:  "M PLUS 1p", ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 
   --measure: 58ch;
   --page:    1180px;
@@ -167,7 +169,7 @@ img, video { display: block; max-width: 100%; }
 .hero-name {
   font-family: var(--serif);
   font-size: clamp(3.2rem, 12vw, 7.6rem);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0.01em;
   margin: 0;
@@ -259,7 +261,7 @@ img, video { display: block; max-width: 100%; }
   font-family: var(--serif);
   overflow-wrap: break-word;
   font-size: clamp(1.8rem, 3.8vw, 2.7rem);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: 0.01em;
   color: var(--name);
@@ -283,6 +285,12 @@ img, video { display: block; max-width: 100%; }
 
 .entry.is-italic .entry-message,
 .entry.is-italic .mat-text { font-style: italic; }
+
+/* An entry can opt out and keep its message squarely under the name. */
+.entry.is-text-left .entry-message {
+  margin-left: 0;
+  text-align: left;
+}
 
 .entry-message p { margin: 0 0 0.9em; }
 .entry-message p:last-child { margin-bottom: 0; }
@@ -367,7 +375,7 @@ button.mat {
 .album-title {
   font-family: var(--serif);
   font-size: clamp(1.5rem, 3vw, 2.1rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--name);
   margin: 0;

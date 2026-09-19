@@ -12,7 +12,8 @@
         "type": "image",
         "src": "media/web/large/amalka.jpg",
         "alt": "Amalka"
-      }
+      },
+      "textAlign": "left"
     },
     {
       "id": "cinda",
@@ -37,7 +38,8 @@
     {
       "id": "amalka-tomaskova",
       "name": "Amálka Tomášková",
-      "text": "Všechno nejlepší :)"
+      "text": "Všechno nejlepší :)",
+      "textAlign": "left"
     },
     {
       "id": "krystof-tade",
