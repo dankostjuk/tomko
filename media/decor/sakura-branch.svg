@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240">
+  <!-- Corner branch: enters at the top-left, arcs right, blossoms on the twigs.
+       Drawn to be mirrored/rotated for the other corners. -->
+  <defs>
+    <g id="petal">
+      <path d="M0 0C-7-4-10-12-5-16.5c2.5-2.3 4.5-1.5 5 1 .5-2.5 2.5-3.3 5-1C10-12 7-4 0 0Z"
+            fill="#f6c8d4" stroke="#e9a8ba" stroke-width="0.6"/>
+    </g>
+    <g id="blossom">
+      <use href="#petal" transform="rotate(0)"/>
+      <use href="#petal" transform="rotate(72)"/>
+      <use href="#petal" transform="rotate(144)"/>
+      <use href="#petal" transform="rotate(216)"/>
+      <use href="#petal" transform="rotate(288)"/>
+      <circle r="2.6" fill="#f3dca6"/>
+      <g stroke="#e0b083" stroke-width="0.8" stroke-linecap="round">
+        <path d="M0 0 -4-5M0 0 4-5M0 0 5 3M0 0-5 3M0 0 0-6"/>
+      </g>
+    </g>
+    <g id="bud">
+      <circle r="3.4" fill="#eeb3c3"/>
+      <circle r="3.4" cy="-1.2" fill="#f7d2dc"/>
+    </g>
+  </defs>
+
+  <g fill="none" stroke="#6f5248" stroke-linecap="round">
+    <path d="M-14-16C26 14 58 26 96 44c44 21 94 30 144 22" stroke-width="7"/>
+    <path d="M96 44c9 19 13 39 4 58" stroke-width="4"/>
+    <path d="M160 58c11-18 27-31 48-36" stroke-width="3.6"/>
+    <path d="M212 68c14 18 23 31 42 40" stroke-width="3.4"/>
+    <path d="M62 28c-4 14-4 26 1 38" stroke-width="2.6"/>
+  </g>
+
+  <g>
+    <use href="#blossom" transform="translate(100 104) rotate(14) scale(1)"/>
+    <use href="#blossom" transform="translate(106 76) rotate(-22) scale(.74)"/>
+    <use href="#blossom" transform="translate(208 22) rotate(8) scale(.94)"/>
+    <use href="#blossom" transform="translate(180 34) rotate(-15) scale(.66)"/>
+    <use href="#blossom" transform="translate(256 110) rotate(20) scale(.88)"/>
+    <use href="#blossom" transform="translate(240 66) rotate(-8) scale(.7)"/>
+    <use href="#blossom" transform="translate(140 52) rotate(26) scale(.6)"/>
+    <use href="#bud" transform="translate(63 66) scale(1.1)"/>
+    <use href="#bud" transform="translate(52 20) scale(.9)"/>
+    <use href="#bud" transform="translate(196 52) scale(.95)"/>
+  </g>
+</svg>

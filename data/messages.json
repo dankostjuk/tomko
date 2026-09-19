@@ -1,0 +1,370 @@
+{
+  "greeting": "This guy,",
+  "honoree": "Tomkus",
+  "intro": "",
+  "closing": "95% of the photos by Manďák (the GOAT)",
+  "entries": [
+    {
+      "id": "amalka",
+      "name": "Tvoje Amálka",
+      "text": "Všechno nejkrásnější, mám tě.",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/amalka.jpg",
+        "alt": "Amalka"
+      }
+    },
+    {
+      "id": "cinda",
+      "name": "Cinda",
+      "text": "",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/cinda.jpg",
+        "alt": "Cinda"
+      }
+    },
+    {
+      "id": "david",
+      "name": "David",
+      "text": "",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/david.jpg",
+        "alt": "David"
+      }
+    },
+    {
+      "id": "amalka-tomaskova",
+      "name": "Amálka Tomášková",
+      "text": "Všechno nejlepší :)"
+    },
+    {
+      "id": "krystof-tade",
+      "name": "Kryštof & Tade",
+      "text": "",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/krystof-tade.jpg",
+        "alt": "Kryštof & Tade"
+      }
+    },
+    {
+      "id": "vojta",
+      "name": "Vojta",
+      "text": "",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/vojta.jpg",
+        "alt": "Vojta"
+      }
+    },
+    {
+      "id": "vojta-doni",
+      "name": "Vojta & Doni",
+      "text": "",
+      "media": {
+        "type": "image",
+        "src": "media/web/large/vojta-doni.jpg",
+        "alt": "Vojta & Doni"
+      }
+    },
+    {
+      "id": "ondra-dan",
+      "name": "Ondra & Dan",
+      "text": "",
+      "italic": true,
+      "media": {
+        "type": "text",
+        "text": "Chtěli jsme koupit kolo\nAle to by nebo ono\nBásničku pro tebe tvoříme\nTo, že jsi na kluky dávno víme\nProto ti chtěl Doni koupit Dicka\nTo by byla moc velká erotika\nVýběr nám dal zabrat\nChtěli jsme se na to vysrat\nMožností tu bylo mnoho\nČínská ocel - prej nahovno\nNakonec jsme dali na Japonce\nAbychom nebyli za pitomce\nTi maj tu ocel nejhezčí\nTak ti přejeme, všechno nejlepší\nVšak 25 ti je už\nTak tady máš nůž"
+      }
+    }
+  ],
+  "albumTitle": "",
+  "albumNote": "",
+  "album": [
+    {
+      "src": "media/web/large/dsc4065.jpg",
+      "thumb": "media/web/thumb/dsc4065.jpg",
+      "width": 1920,
+      "height": 1282
+    },
+    {
+      "src": "media/web/large/dsc4067.jpg",
+      "thumb": "media/web/thumb/dsc4067.jpg",
+      "width": 1282,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/dsc4054-u1.jpg",
+      "thumb": "media/web/thumb/dsc4054-u1.jpg",
+      "width": 1920,
+      "height": 1280
+    },
+    {
+      "src": "media/web/large/img-20200826-wa0126.jpg",
+      "thumb": "media/web/thumb/img-20200826-wa0126.jpg",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "src": "media/web/large/img-20200826-wa0213.jpg",
+      "thumb": "media/web/thumb/img-20200826-wa0213.jpg",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "src": "media/web/large/img-20200826-wa0250.jpg",
+      "thumb": "media/web/thumb/img-20200826-wa0250.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "media/web/large/img-20200826-wa0272.jpg",
+      "thumb": "media/web/thumb/img-20200826-wa0272.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "media/web/large/img-20200826-wa0275.jpg",
+      "thumb": "media/web/thumb/img-20200826-wa0275.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "media/web/large/img-20200827-wa0004.jpg",
+      "thumb": "media/web/thumb/img-20200827-wa0004.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "media/web/large/img-20201208-171227.jpg",
+      "thumb": "media/web/thumb/img-20201208-171227.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20201208-171434.jpg",
+      "thumb": "media/web/thumb/img-20201208-171434.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20201208-171600.jpg",
+      "thumb": "media/web/thumb/img-20201208-171600.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20201208-171746.jpg",
+      "thumb": "media/web/thumb/img-20201208-171746.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20201208-171946.jpg",
+      "thumb": "media/web/thumb/img-20201208-171946.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/screenshot-20210518-170505.jpg",
+      "thumb": "media/web/thumb/screenshot-20210518-170505.jpg",
+      "width": 1080,
+      "height": 774
+    },
+    {
+      "src": "media/web/large/img-20210525-173936.jpg",
+      "thumb": "media/web/thumb/img-20210525-173936.jpg",
+      "width": 1345,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20220401-203232.jpg",
+      "thumb": "media/web/thumb/img-20220401-203232.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/img-20230207-wa0013.jpg",
+      "thumb": "media/web/thumb/img-20230207-wa0013.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/img-20230209-wa0041.jpg",
+      "thumb": "media/web/thumb/img-20230209-wa0041.jpg",
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "src": "media/web/large/img-20240201-223757.jpg",
+      "thumb": "media/web/thumb/img-20240201-223757.jpg",
+      "width": 1082,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/20240709-222216.jpg",
+      "thumb": "media/web/thumb/20240709-222216.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2024-0813-22561600.jpg",
+      "thumb": "media/web/thumb/2024-0813-22561600.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "media/web/large/2024-0813-23562200.jpg",
+      "thumb": "media/web/thumb/2024-0813-23562200.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "media/web/large/2024-1203-00514600.jpg",
+      "thumb": "media/web/thumb/2024-1203-00514600.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2024-1223-23574700.jpg",
+      "thumb": "media/web/thumb/2024-1223-23574700.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/2024-1224-00020100.jpg",
+      "thumb": "media/web/thumb/2024-1224-00020100.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2024-1224-01294900.jpg",
+      "thumb": "media/web/thumb/2024-1224-01294900.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/2024-1224-01433300.jpg",
+      "thumb": "media/web/thumb/2024-1224-01433300.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2025-0313-20545800.jpg",
+      "thumb": "media/web/thumb/2025-0313-20545800.jpg",
+      "width": 1440,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/2025-0313-21543100.jpg",
+      "thumb": "media/web/thumb/2025-0313-21543100.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2025-0314-00184600.jpg",
+      "thumb": "media/web/thumb/2025-0314-00184600.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2025-0314-00324500.jpg",
+      "thumb": "media/web/thumb/2025-0314-00324500.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2025-0430-20374700.jpg",
+      "thumb": "media/web/thumb/2025-0430-20374700.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/2025-0430-22182900.jpg",
+      "thumb": "media/web/thumb/2025-0430-22182900.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/dscf1335.jpg",
+      "thumb": "media/web/thumb/dscf1335.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/dscf1342.jpg",
+      "thumb": "media/web/thumb/dscf1342.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/dscf1356.jpg",
+      "thumb": "media/web/thumb/dscf1356.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/dscf1357.jpg",
+      "thumb": "media/web/thumb/dscf1357.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/screenshot-2025-10-16-10-40-36-751-com-google-android-apps-photos.jpg",
+      "thumb": "media/web/thumb/screenshot-2025-10-16-10-40-36-751-com-google-android-apps-photos.jpg",
+      "width": 864,
+      "height": 1920
+    },
+    {
+      "src": "media/web/large/30199b11-b5e4-4e7c-8ca2-94a4a9fc9473.jpg",
+      "thumb": "media/web/thumb/30199b11-b5e4-4e7c-8ca2-94a4a9fc9473.jpg",
+      "width": 538,
+      "height": 854
+    },
+    {
+      "src": "media/web/large/a5c08718-98d4-4fca-b186-f57a9c050738.jpg",
+      "thumb": "media/web/thumb/a5c08718-98d4-4fca-b186-f57a9c050738.jpg",
+      "width": 1206,
+      "height": 1571
+    },
+    {
+      "src": "media/web/large/messenger-creation-2e55fcb9-92ad-4d99-9ec1-74622175ca06.jpg",
+      "thumb": "media/web/thumb/messenger-creation-2e55fcb9-92ad-4d99-9ec1-74622175ca06.jpg",
+      "width": 1920,
+      "height": 952
+    },
+    {
+      "src": "media/web/large/received-1284928655309923.jpg",
+      "thumb": "media/web/thumb/received-1284928655309923.jpg",
+      "width": 756,
+      "height": 513
+    },
+    {
+      "src": "media/web/large/received-283089553816499.jpg",
+      "thumb": "media/web/thumb/received-283089553816499.jpg",
+      "width": 491,
+      "height": 960
+    },
+    {
+      "src": "media/web/large/received-630310404399380.jpg",
+      "thumb": "media/web/thumb/received-630310404399380.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "src": "media/web/large/ac764dcc-2022-4418-9341-ca49a10c5371.jpg",
+      "thumb": "media/web/thumb/ac764dcc-2022-4418-9341-ca49a10c5371.jpg",
+      "width": 537,
+      "height": 356
+    }
+  ],
+  "heroImage": {
+    "src": "media/web/large/title-image.jpg",
+    "thumb": "media/web/thumb/title-image.jpg",
+    "width": 1920,
+    "height": 1440,
+    "alt": "Tomkus"
+  }
+}

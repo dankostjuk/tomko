@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1050" width="1400" height="1050">
+  <rect width="1400" height="1050" fill="#f8ece9"/>
+  <circle cx="1020" cy="330" r="210" fill="#2b4c6f" opacity="0.55"/>
+  <circle cx="470" cy="600" r="290" fill="#f2b8c6" opacity="0.4"/>
+  <path d="M0 820 L360 640 L720 800 L1060 660 L1400 830 L1400 1050 L0 1050 Z" fill="#2b4c6f" opacity="0.28"/>
+  <text x="60" y="120" font-family="'Shippori Mincho', Georgia, serif" font-style="italic" font-size="54" fill="#6b504c" opacity="0.45">photo</text>
+</svg>

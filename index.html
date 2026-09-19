@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Congratulations</title>
+  <meta name="description" content="Messages, photos and videos from the people who wanted to say something.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🌸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Sakura drifting behind the page. Decoration only. -->
+  <div class="sakura" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Branches leaning in from the corners of the page. Decoration only. -->
+  <div class="branches" aria-hidden="true">
+    <img class="branch branch-tl" src="media/decor/sakura-branch.svg" alt="">
+    <img class="branch branch-tr" src="media/decor/sakura-sprig.svg" alt="">
+    <img class="branch branch-br" src="media/decor/sakura-branch.svg" alt="">
+  </div>
+
+  <header class="hero">
+    <p class="hero-greeting" id="heroGreeting">This guy,</p>
+    <h1 class="hero-name" id="heroName">&nbsp;</h1>
+    <p class="hero-intro" id="heroIntro"></p>
+    <div class="hero-photo" id="heroPhoto" hidden></div>
+    <span class="seal" aria-hidden="true">祝</span>
+    <p class="hero-greeting">K Tvým krásným narozeninám Ti přejí......</p>
+  </header>
+
+  <main class="entries" id="entries"></main>
+
+  <p class="loading" id="loading">Loading the messages…</p>
+
+  <section class="album" id="album" hidden>
+    <div class="album-head">
+      <h2 class="album-title" id="albumTitle"></h2>
+      <p class="album-note" id="albumNote"></p>
+    </div>
+    <div class="album-scroller">
+      <button class="album-arrow album-arrow-prev" id="albumPrev" type="button" aria-label="Earlier photos">&lsaquo;</button>
+      <div class="album-strip" id="albumStrip" tabindex="0" role="list"></div>
+      <button class="album-arrow album-arrow-next" id="albumNext" type="button" aria-label="Later photos">&rsaquo;</button>
+    </div>
+  </section>
+
+  <footer class="closing">
+    <p id="closingLine"></p>
+  </footer>
+
+  <dialog class="viewer" id="viewer">
+    <button class="viewer-close" id="viewerClose" type="button" aria-label="Close">&times;</button>
+    <button class="viewer-nav viewer-prev" id="viewerPrev" type="button" aria-label="Previous photo">&lsaquo;</button>
+    <img id="viewerImage" alt="">
+    <button class="viewer-nav viewer-next" id="viewerNext" type="button" aria-label="Next photo">&rsaquo;</button>
+    <footer class="viewer-bar">
+      <p class="viewer-caption" id="viewerCaption"></p>
+      <p class="viewer-count" id="viewerCount"></p>
+    </footer>
+  </dialog>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

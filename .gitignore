@@ -1,0 +1,18 @@
+# IntelliJ
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Large local media (uncomment if you do not want media in git)
+# media/videos/
+media/images/

@@ -1,0 +1,613 @@
+/* =====================================================================
+   Congratulations wall — one page, messages hung along a centre thread.
+   Japanese dress: washi paper, sumi ink, indigo names, sakura falling
+   quietly behind everything.
+   ===================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --paper:     #fbf6f2;   /* washi, warm off-white   */
+  --paper-top: #fdeef0;   /* faint sakura tint, top  */
+  --mat:       #fffdfb;   /* photo mat               */
+  --ink:       #2f2724;   /* sumi — body text        */
+  --ink-soft:  #857773;   /* captions, meta          */
+  --name:      #2b4c6f;   /* 藍 indigo — the names   */
+  --seal:      #c0554a;   /* 朱 vermilion — the seal */
+  --rule:      #e6d8d2;   /* hairlines               */
+  --petal:     #f2b8c6;   /* 撫子 — the petals       */
+
+  --serif: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, "Iowan Old Style", serif;
+  --sans:  "Zen Kaku Gothic New", "Karla", ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --measure: 58ch;
+  --page:    1180px;
+  --gutter:  clamp(20px, 5vw, 56px);
+
+  /* One petal, drawn once and reused by the falling layer and the rules. */
+  --petal-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1c5 4 9 10 7 16-2 5-6 6-7 3-1 3-5 2-7-3-2-6 2-12 7-16z' fill='%23f2b8c6'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* A sakura blush at the top of the page, gone by the first message. */
+  background-color: var(--paper);
+  background-image: linear-gradient(180deg, var(--paper-top) 0, var(--paper) 760px);
+  background-repeat: no-repeat;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(16px, 1.05vw, 17.5px);
+  font-weight: 400;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, video { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--name);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   Sakura — branches leaning in from the corners of the page, and a fixed
+   layer behind it all with petals drifting down forever
+   --------------------------------------------------------------------- */
+
+.branches {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.branch {
+  position: absolute;
+  opacity: .92;
+}
+
+.branch-tl { top: -18px; left: -22px;  width: clamp(190px, 27vw, 340px); }
+.branch-tr { top:  14px; right: -18px; width: clamp(150px, 20vw, 250px); transform: scaleX(-1); }
+.branch-br { bottom: -14px; right: -24px; width: clamp(180px, 24vw, 310px); transform: rotate(180deg); }
+
+/* ---------------------------------------------------------------------
+   The petal layer itself.
+   --------------------------------------------------------------------- */
+
+.sakura {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sakura span {
+  position: absolute;
+  top: 0;
+  width: var(--s, 16px);
+  height: var(--s, 16px);
+  animation: petal-fall var(--dur, 15s) linear var(--delay, 0s) infinite;
+}
+
+.sakura span::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--petal-svg) center / contain no-repeat;
+  animation: petal-sway calc(var(--dur, 15s) / 5) ease-in-out infinite alternate;
+}
+
+@keyframes petal-fall {
+  0%   { transform: translate3d(0, -12vh, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: var(--op, .55); }
+  50%  { transform: translate3d(var(--drift, 5vw), 50vh, 0) rotate(190deg); }
+  92%  { opacity: var(--op, .55); }
+  100% { transform: translate3d(calc(var(--drift, 5vw) * .35), 112vh, 0) rotate(380deg); opacity: 0; }
+}
+
+@keyframes petal-sway {
+  from { transform: translateX(-9px) rotate(-12deg); }
+  to   { transform: translateX(9px) rotate(14deg); }
+}
+
+/* Each petal gets its own lane, size, speed and head start. */
+.sakura span:nth-child(1)  { left:  3%; --s: 15px; --dur: 17s; --delay:  -2s; --drift:  7vw; --op: .55; }
+.sakura span:nth-child(2)  { left: 11%; --s: 11px; --dur: 23s; --delay:  -9s; --drift: -4vw; --op: .40; }
+.sakura span:nth-child(3)  { left: 19%; --s: 19px; --dur: 14s; --delay: -14s; --drift:  5vw; --op: .60; }
+.sakura span:nth-child(4)  { left: 27%; --s: 13px; --dur: 20s; --delay:  -5s; --drift: -8vw; --op: .45; }
+.sakura span:nth-child(5)  { left: 35%; --s: 17px; --dur: 26s; --delay: -18s; --drift:  3vw; --op: .35; }
+.sakura span:nth-child(6)  { left: 43%; --s: 12px; --dur: 16s; --delay: -11s; --drift:  9vw; --op: .55; }
+.sakura span:nth-child(7)  { left: 51%; --s: 20px; --dur: 21s; --delay:  -3s; --drift: -6vw; --op: .50; }
+.sakura span:nth-child(8)  { left: 59%; --s: 14px; --dur: 15s; --delay: -16s; --drift:  4vw; --op: .60; }
+.sakura span:nth-child(9)  { left: 67%; --s: 10px; --dur: 25s; --delay:  -7s; --drift: -3vw; --op: .35; }
+.sakura span:nth-child(10) { left: 74%; --s: 18px; --dur: 19s; --delay: -21s; --drift:  6vw; --op: .50; }
+.sakura span:nth-child(11) { left: 82%; --s: 13px; --dur: 22s; --delay: -13s; --drift: -7vw; --op: .45; }
+.sakura span:nth-child(12) { left: 89%; --s: 16px; --dur: 18s; --delay:  -6s; --drift:  4vw; --op: .55; }
+.sakura span:nth-child(13) { left: 95%; --s: 11px; --dur: 27s; --delay: -24s; --drift: -5vw; --op: .35; }
+.sakura span:nth-child(14) { left: 63%; --s: 15px; --dur: 30s; --delay: -19s; --drift:  8vw; --op: .30; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sakura { display: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: clamp(64px, 13vh, 128px) clamp(44px, 7vh, 76px);
+  text-align: center;
+}
+
+.hero-greeting {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 3vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  margin: 0 0 0.5em;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 12vw, 7.6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.hero-intro {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 1.6em auto 0;
+}
+
+/* The photograph under the name, in the same mat as the rest. */
+.hero-photo {
+  width: min(600px, 100%);
+  margin: clamp(30px, 5vh, 52px) auto 0;
+}
+
+.hero-photo .mat {
+  max-width: 100%;
+  padding: clamp(10px, 1.6vw, 16px);
+}
+
+.hero-photo .mat img { width: 100%; height: auto; }
+
+/* A red seal stamped under the greeting, the way a letter is signed. */
+.seal {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: clamp(26px, 4vh, 40px) auto 0;
+  border: 2px solid var(--seal);
+  border-radius: 6px;
+  color: var(--seal);
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  line-height: 48px;
+  text-align: center;
+  transform: rotate(-4deg);
+  opacity: .85;
+}
+
+/* ---------------------------------------------------------------------
+   Entries — one message per person, name and photograph alternating sides
+   along the thread; the message itself always set to the right
+   --------------------------------------------------------------------- */
+
+.entries {
+  position: relative;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: clamp(12px, 2vh, 24px) clamp(56px, 10vh, 120px);
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 104px 1fr;
+  align-items: start;
+  column-gap: 0;
+  padding-block: clamp(36px, 6vh, 64px);
+  scroll-margin-top: 24px;
+}
+
+.entry-text  { grid-row: 1; grid-column: 3; padding-left: clamp(28px, 4vw, 56px); }
+.entry-media { grid-row: 1; grid-column: 1; padding-right: clamp(28px, 4vw, 56px); justify-self: end; padding-top: 0.6rem; }
+
+.entry.is-mirrored .entry-text  { grid-row: 1; grid-column: 1; padding: 0 clamp(28px, 4vw, 56px) 0 0; text-align: left; }
+.entry.is-mirrored .entry-media { grid-row: 1; grid-column: 3; padding: 0.6rem 0 0 clamp(28px, 4vw, 56px); justify-self: start; }
+
+/* A hairline closes the hero and divides one person from the next,
+   with a single petal resting on it. */
+.entry { border-top: 1px solid var(--rule); }
+
+.entry::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  transform: translateX(-50%) rotate(8deg);
+  background: var(--petal-svg) center / contain no-repeat;
+  opacity: .8;
+}
+
+.entry-name {
+  font-family: var(--serif);
+  overflow-wrap: break-word;
+  font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--name);
+  margin: 0;
+}
+
+.entry-relation {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0.45em 0 0;
+}
+
+.entry-message {
+  max-width: var(--measure);
+  margin: 1.2em 0 0 auto;      /* pushed to the right of its column */
+  text-align: right;
+  overflow-wrap: break-word;   /* nothing overruns the column on a phone */
+}
+
+.entry.is-italic .entry-message,
+.entry.is-italic .mat-text { font-style: italic; }
+
+.entry-message p { margin: 0 0 0.9em; }
+.entry-message p:last-child { margin-bottom: 0; }
+
+/* Media sits in a paper mat, like a print laid on the page. */
+.mat {
+  background: var(--mat);
+  padding: 14px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 10px 28px -18px rgba(47, 39, 36, .5);
+  max-width: 420px;
+}
+
+.mat img, .mat video {
+  width: 100%;
+  height: auto;
+  background: var(--paper);
+}
+
+/* Portrait photos would otherwise run the length of the screen. */
+.entry-media .mat img {
+  width: auto;
+  max-width: 100%;
+  max-height: 520px;
+}
+
+/* Words standing where a photograph would be. */
+.mat-text {
+  padding: clamp(18px, 2.2vw, 26px) clamp(20px, 2.4vw, 28px);
+  text-align: left;
+}
+
+.mat-text p { margin: 0 0 0.9em; }
+.mat-text p:last-child { margin-bottom: 0; }
+
+button.mat {
+  display: block;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.mat-caption {
+  font-family: var(--serif);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 10px 2px 0;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------
+   The album — everything else, on a strip you scroll sideways
+   --------------------------------------------------------------------- */
+
+.album {
+  position: relative;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: clamp(28px, 5vh, 56px) 0 clamp(40px, 7vh, 80px);
+  border-top: 1px solid var(--rule);
+}
+
+.album::before {
+  content: "";
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  transform: translateX(-50%) rotate(-10deg);
+  background: var(--petal-svg) center / contain no-repeat;
+  opacity: .8;
+}
+
+.album-head {
+  padding-inline: var(--gutter);
+  margin-bottom: clamp(20px, 3vh, 34px);
+}
+
+.album-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--name);
+  margin: 0;
+}
+
+.album-note {
+  color: var(--ink-soft);
+  margin: 0.5em 0 0;
+  max-width: 52ch;
+}
+
+.album-scroller { position: relative; }
+
+.album-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--gutter);
+  padding: 6px var(--gutter) 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+.album-strip::-webkit-scrollbar { height: 8px; }
+.album-strip::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+
+.album-tile {
+  flex: 0 0 auto;
+  height: clamp(150px, 24vh, 240px);
+  aspect-ratio: var(--ratio, 1.4);
+  scroll-snap-align: start;
+  padding: 6px;
+  border: 1px solid var(--rule);
+  background: var(--mat);
+  box-shadow: 0 8px 22px -16px rgba(47, 39, 36, .6);
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.album-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--paper);
+}
+
+.album-tile:hover,
+.album-tile:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -16px rgba(47, 39, 36, .7);
+}
+
+.album-arrow {
+  position: absolute;
+  top: calc(50% - 9px);
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  transform: translateY(-50%);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--mat);
+  color: var(--name);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 18px -10px rgba(47, 39, 36, .6);
+  transition: opacity .18s ease;
+}
+
+.album-arrow-prev { left: max(6px, calc(var(--gutter) - 21px)); }
+.album-arrow-next { right: max(6px, calc(var(--gutter) - 21px)); }
+
+.album-arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch scrolls the strip directly — the arrows only get in the way. */
+  .album-arrow { display: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Closing + states
+   --------------------------------------------------------------------- */
+
+.closing {
+  position: relative;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: 28px var(--gutter) clamp(56px, 9vh, 96px);
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.closing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: var(--rule);
+}
+
+.closing p { margin: 0; }
+
+.loading,
+.failed {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  color: var(--ink-soft);
+}
+
+.failed code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .9em;
+  background: var(--mat);
+  border: 1px solid var(--rule);
+  padding: 1px 5px;
+}
+
+/* ---------------------------------------------------------------------
+   Image viewer
+   --------------------------------------------------------------------- */
+
+.viewer {
+  border: none;
+  padding: 14px;
+  background: var(--mat);
+  max-width: min(1000px, 92vw);
+  box-shadow: 0 30px 80px -30px rgba(47, 39, 36, .8);
+}
+
+.viewer::backdrop { background: rgba(47, 39, 36, .86); }
+.viewer img { max-height: 78vh; width: auto; margin-inline: auto; }
+
+.viewer-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 2px 2px;
+}
+
+.viewer-caption,
+.viewer-count {
+  font-family: var(--serif);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.viewer-count {
+  flex: 0 0 auto;
+  font-size: .92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.viewer-bar:has(.viewer-caption:empty) { justify-content: flex-end; }
+
+.viewer-nav {
+  position: absolute;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--mat);
+  color: var(--name);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .9;
+}
+
+.viewer-nav:hover { opacity: 1; }
+.viewer-prev { left: -23px; }
+.viewer-next { right: -23px; }
+
+@media (max-width: 640px) {
+  .viewer-prev { left: 8px; }
+  .viewer-next { right: 8px; }
+}
+
+.viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--mat);
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------
+   Narrow screens — everything stacks
+   --------------------------------------------------------------------- */
+
+@media (max-width: 820px) {
+  /* One branch at the top, one at the bottom — the third would crowd. */
+  .branch-tr { display: none; }
+  .branch-tl { width: 160px; top: -12px; left: -16px; }
+  .branch-br { width: 150px; }
+
+  .entry,
+  .entry.is-mirrored {
+    grid-template-columns: 1fr;
+    align-items: start;
+    row-gap: 22px;
+  }
+
+  .entry .entry-text,
+  .entry.is-mirrored .entry-text,
+  .entry .entry-media,
+  .entry.is-mirrored .entry-media {
+    grid-column: 1;
+    padding: 0;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .entry .entry-text, .entry.is-mirrored .entry-text { grid-row: 1; }
+  .entry .entry-media, .entry.is-mirrored .entry-media { grid-row: 2; padding-top: 0; }
+
+  /* A text card fills the width here, the way the photo mats do. */
+  .entry .entry-media:has(.mat-text),
+  .entry.is-mirrored .entry-media:has(.mat-text) { justify-self: stretch; }
+  .entry-message { margin-left: 0; text-align: left; }
+
+  .mat { max-width: 100%; }
+}
